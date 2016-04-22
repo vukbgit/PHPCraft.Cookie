@@ -4,7 +4,7 @@ namespace PHPCraft\Cookie;
 
 use Http\Request, Http\Response, Http\CookieBuilder;
 
-class CookiePatrickLouysHttp implements CookieInterface
+class CookieBuilderPatrickLouysHttp implements CookieBuilderInterface
 {
     private $cookieBuilder;
     private $httpRequest;

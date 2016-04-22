@@ -2,7 +2,7 @@
 
 namespace PHPCraft\Cookie;
 
-interface CookieInterface
+interface CookieBuilderInterface
 {
     public function set($name, $value);
     
