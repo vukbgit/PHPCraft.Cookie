@@ -2,13 +2,15 @@
 
 namespace PHPCraft\Cookie;
 
+use Http\Request, Http\Response, Http\CookieBuilder;
+
 class CookiePatrickLouysHttp implements CookieInterface
 {
     private $cookieBuilder;
     private $httpRequest;
     private $httpResponse;
 
-    public function __construct(Http\CookieBuilder $cookieBuilder, Http\Request $httpRequest, Http\Response $httpResponse)
+    public function __construct(Request $httpRequest, Response $httpResponse, CookieBuilder $cookieBuilder)
     {
         $this->cookieBuilder = $cookieBuilder;
         $this->httpRequest = $httpRequest;
