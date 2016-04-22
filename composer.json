@@ -1,7 +1,7 @@
 {
     "name": "phpcraft/cookie",
     "type": "library",
-    "description": "cookie manager",
+    "description": "cookie manager wrapper",
     "license": "MIT",
     "authors": [
 	{
