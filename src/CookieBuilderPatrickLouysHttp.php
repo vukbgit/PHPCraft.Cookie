@@ -59,7 +59,7 @@ class CookieBuilderPatrickLouysHttp implements CookieBuilderInterface
      **/
     public function delete($name)
     {
-        $cookie = $this->cookieBuilder->build($name);
+        $cookie = $this->cookieBuilder->build($name,'');
         $this->httpResponse->deleteCookie($cookie);
     }
 }
