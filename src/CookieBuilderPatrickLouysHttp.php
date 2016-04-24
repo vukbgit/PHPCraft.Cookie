@@ -25,6 +25,7 @@ class CookieBuilderPatrickLouysHttp implements CookieBuilderInterface
     public function __construct(Request $httpRequest, Response $httpResponse, CookieBuilder $cookieBuilder)
     {
         $this->cookieBuilder = $cookieBuilder;
+        $this->cookieBuilder->setDefaultSecure(false);
         $this->httpRequest = $httpRequest;
         $this->httpResponse = $httpResponse;
     }
