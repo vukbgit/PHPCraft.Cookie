@@ -49,7 +49,7 @@ class CookieBuilderPatrickLouysHttp implements CookieBuilderInterface
      **/
     public function get($name, $defaultValue = false)
     {
-        $this->httpRequest->getCookie($name, $defaultValue);
+        return $this->httpRequest->getCookie($name, $defaultValue);
     }
     
     /**
