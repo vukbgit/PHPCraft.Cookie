@@ -14,8 +14,9 @@ interface CookieBuilderInterface
      *
      * @param string $name
      * @param mixed $value
+     * @param integer $life of the cookie inb seconds
      **/
-    public function set($name, $value);
+    public function set($name, $value, $life = null);
     
     /**
      * Gets cookie

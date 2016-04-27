@@ -35,10 +35,14 @@ class CookieBuilderPatrickLouysHttp implements CookieBuilderInterface
      *
      * @param string $name
      * @param mixed $value
+     * @param integer $life of the cookie in seconds
      **/
-    public function set($name, $value)
+    public function set($name, $value, $life = null)
     {
         $cookie = $this->cookieBuilder->build($name, $value);
+        if($life){
+            $cookie->setMaxAge($life);
+        }
         $this->httpResponse->addCookie($cookie);
     }
     
