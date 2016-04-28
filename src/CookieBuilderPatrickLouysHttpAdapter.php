@@ -9,7 +9,7 @@ use Http\Request, Http\Response, Http\CookieBuilder;
  *
  * @author vuk <info@vuk.bg.it>
  */
-class CookieBuilderPatrickLouysHttp implements CookieBuilderInterface
+class CookieBuilderPatrickLouysHttpAdapter implements CookieBuilderInterface
 {
     private $cookieBuilder;
     private $httpRequest;
