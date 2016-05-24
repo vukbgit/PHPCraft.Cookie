@@ -7,7 +7,7 @@ namespace PHPCraft\Cookie;
  *
  * @author vuk <info@vuk.bg.it>
  */
-interface CookieBuilderInterface
+interface CookieInterface
 {
     /**
      * Sets cookie

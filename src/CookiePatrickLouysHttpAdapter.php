@@ -9,9 +9,9 @@ use Http\Request, Http\Response, Http\CookieBuilder;
  *
  * @author vuk <info@vuk.bg.it>
  */
-class CookieBuilderPatrickLouysHttpAdapter implements CookieBuilderInterface
+class CookiePatrickLouysHttpAdapter implements CookieInterface
 {
-    private $cookieBuilder;
+    private $cookie;
     private $httpRequest;
     private $httpResponse;
 
@@ -20,12 +20,12 @@ class CookieBuilderPatrickLouysHttpAdapter implements CookieBuilderInterface
      *
      * @param Http\Request $httpRequest
      * @param Http\Response $httpResponse
-     * @param Http\CookieBuilder $cookieBuilder
+     * @param Http\CookieBuilder $cookie
      **/
-    public function __construct(Request $httpRequest, Response $httpResponse, CookieBuilder $cookieBuilder)
+    public function __construct(Request $httpRequest, Response $httpResponse, CookieBuilder $cookie)
     {
-        $this->cookieBuilder = $cookieBuilder;
-        $this->cookieBuilder->setDefaultSecure(false);
+        $this->cookie = $cookie;
+        $this->cookie->setDefaultSecure(false);
         $this->httpRequest = $httpRequest;
         $this->httpResponse = $httpResponse;
     }
@@ -39,7 +39,7 @@ class CookieBuilderPatrickLouysHttpAdapter implements CookieBuilderInterface
      **/
     public function set($name, $value, $life = null)
     {
-        $cookie = $this->cookieBuilder->build($name, $value);
+        $cookie = $this->cookie->build($name, $value);
         if($life){
             $cookie->setMaxAge($life);
         }
@@ -64,7 +64,7 @@ class CookieBuilderPatrickLouysHttpAdapter implements CookieBuilderInterface
      **/
     public function delete($name)
     {
-        $cookie = $this->cookieBuilder->build($name,'');
+        $cookie = $this->cookie->build($name,'');
         $this->httpResponse->deleteCookie($cookie);
     }
 }
