@@ -2,7 +2,7 @@
 
 namespace PHPCraft\Cookie;
 
-use Psr\Http\Message\Request, Dflydev\FigCookies\FigResponseCookies, Dflydev\FigCookies\FigRequestCookies;
+use Psr\Http\Message\RequestInterface, Psr\Http\Message\RequestInterface, Dflydev\FigCookies\FigResponseCookies, Dflydev\FigCookies\FigRequestCookies;
 
 /**
  * Manages cookies using Http class by Patrick Louys (https://github.com/PatrickLouys/http)
@@ -11,7 +11,6 @@ use Psr\Http\Message\Request, Dflydev\FigCookies\FigResponseCookies, Dflydev\Fig
  */
 class CookieDflydevFigCookiesAdapter implements CookieInterface
 {
-    private $cookie;
     private $httpRequest;
     private $httpResponse;
 
@@ -22,10 +21,8 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
      * @param Http\Response $httpResponse
      * @param Http\CookieBuilder $cookie
      **/
-    public function __construct(Request $httpRequest, Response $httpResponse, CookieBuilder $cookie)
+    public function __construct(RequestInterface $httpRequest, RequestInterface $httpResponse)
     {
-        $this->cookie = $cookie;
-        $this->cookie->setDefaultSecure(false);
         $this->httpRequest = $httpRequest;
         $this->httpResponse = $httpResponse;
     }
