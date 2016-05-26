@@ -2,7 +2,7 @@
 
 namespace PHPCraft\Cookie;
 
-use Psr\Http\Message\RequestInterface, Psr\Http\Message\ResponseInterface, Dflydev\FigCookies\FigResponseCookies, Dflydev\FigCookies\FigRequestCookies;
+use Psr\Http\Message\RequestInterface, Psr\Http\Message\ResponseInterface, Dflydev\FigCookies\FigResponseCookies, Dflydev\FigCookies\FigRequestCookies, Dflydev\FigCookies\SetCookie;;
 
 /**
  * Manages cookies using Http class by Patrick Louys (https://github.com/PatrickLouys/http)
