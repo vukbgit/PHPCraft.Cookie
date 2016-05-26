@@ -24,6 +24,7 @@ interface CookieInterface
      *
      * @param string $name
      * @param mixed $defaultValue to return in case cookie is not set
+     * @return mixed cookie value if any or default value
      **/
     public function get($name, $defaultValue = false);
     
