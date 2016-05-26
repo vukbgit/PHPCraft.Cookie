@@ -1,4 +1,4 @@
 Cookie manager adapter:
 
 * interface
-* one concrete class that uses [patricklouys/http](https://github.com/PatrickLouys/http)
+* one concrete class that uses [dflydev/dflydev-fig-cookies](https://github.com/dflydev/dflydev-fig-cookies)

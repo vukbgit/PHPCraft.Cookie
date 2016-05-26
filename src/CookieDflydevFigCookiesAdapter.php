@@ -33,10 +33,11 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
      * @param string $name
      * @param mixed $value
      * @param integer $life of the cookie in seconds
+     * @return Psr\Http\Message\ResponseInterface implementation modified by cookie addition
      **/
     public function set($name, $value, $life = null)
     {
-        FigResponseCookies::set($this->httpResponse, SetCookie::create($name)
+        return FigResponseCookies::set($this->httpResponse, SetCookie::create($name)
             ->withValue($value)
             ->withExpires($life)
         );
