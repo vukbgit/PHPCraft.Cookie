@@ -23,8 +23,8 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
      **/
     public function __construct(RequestInterface $httpRequest, ResponseInterface $httpResponse)
     {
-        $this->httpRequest = $httpRequest;
-        $this->httpResponse = $httpResponse;
+        $this->httpRequest =& $httpRequest;
+        $this->httpResponse =& $httpResponse;
     }
 
     /**
