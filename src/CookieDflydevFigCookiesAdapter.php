@@ -63,6 +63,7 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
      **/
     public function delete($name)
     {
-        return FigResponseCookies::remove($this->httpResponse, $name);
+        $this->httpResponse = FigResponseCookies::remove($this->httpResponse, $name);
+        return FigResponseCookies::expire($this->httpResponse, $name);
     }
 }
