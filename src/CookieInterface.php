@@ -32,6 +32,7 @@ interface CookieInterface
      * Deletes cookie
      *
      * @param string $name
+     * @return Psr\Http\Message\ResponseInterface object modified by cookie deletion
      **/
     public function delete($name);
 }

@@ -59,9 +59,10 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
      * Deletes cookie
      *
      * @param string $name
+     * @return Psr\Http\Message\ResponseInterface object modified by cookie deletion
      **/
     public function delete($name)
     {
-        FigResponseCookies::remove($this->httpResponse, $name);
+        return FigResponseCookies::remove($this->httpResponse, $name);
     }
 }
