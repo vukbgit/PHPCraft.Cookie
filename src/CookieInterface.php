@@ -15,7 +15,6 @@ interface CookieInterface
      * @param string $name
      * @param mixed $value
      * @param integer $life of the cookie inb seconds
-     * @return Psr\Http\Message\ResponseInterface object modified by cookie addition
      **/
     public function set($name, $value, $life = null);
     
@@ -32,7 +31,6 @@ interface CookieInterface
      * Deletes cookie
      *
      * @param string $name
-     * @return Psr\Http\Message\ResponseInterface object modified by cookie deletion
      **/
     public function delete($name);
 }

@@ -21,7 +21,7 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
      * @param Http\Response $httpResponse
      * @param Http\CookieBuilder $cookie
      **/
-    public function __construct(RequestInterface $httpRequest, ResponseInterface $httpResponse)
+    public function __construct(RequestInterface &$httpRequest, ResponseInterface &$httpResponse)
     {
         $this->httpRequest =& $httpRequest;
         $this->httpResponse =& $httpResponse;
@@ -33,11 +33,10 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
      * @param string $name
      * @param mixed $value
      * @param integer $life of the cookie in seconds
-     * @return Psr\Http\Message\ResponseInterface object modified by cookie addition
      **/
     public function set($name, $value, $life = null)
     {
-        return FigResponseCookies::set($this->httpResponse, SetCookie::create($name)
+        $this->httpResponse = FigResponseCookies::set($this->httpResponse, SetCookie::create($name)
             ->withValue($value)
             ->withExpires($life)
         );
@@ -59,11 +58,10 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
      * Deletes cookie
      *
      * @param string $name
-     * @return Psr\Http\Message\ResponseInterface object modified by cookie deletion
      **/
     public function delete($name)
     {
         $this->httpResponse = FigResponseCookies::remove($this->httpResponse, $name);
-        return FigResponseCookies::expire($this->httpResponse, $name);
+        $this->httpResponse = FigResponseCookies::expire($this->httpResponse, $name);
     }
 }
