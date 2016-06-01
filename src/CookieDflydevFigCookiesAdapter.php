@@ -37,6 +37,7 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
     public function set($name, $value, $life = null)
     {
         $this->httpResponse = FigResponseCookies::set($this->httpResponse, SetCookie::create($name)
+            ->withPath('/')
             ->withValue($value)
             ->withExpires($life)
         );
