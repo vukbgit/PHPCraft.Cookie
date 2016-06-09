@@ -28,6 +28,13 @@ interface CookieInterface
     public function get($name, $defaultValue = false);
     
     /**
+     * Sets cookie path
+     *
+     * @param string $path
+     **/
+    public function setPath($path);
+    
+    /**
      * Deletes cookie
      *
      * @param string $name

@@ -13,6 +13,7 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
 {
     private $httpRequest;
     private $httpResponse;
+    private $path;
 
     /**
      * Constructor.
@@ -25,6 +26,7 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
     {
         $this->httpRequest =& $httpRequest;
         $this->httpResponse =& $httpResponse;
+        $this->path = '/';
     }
 
     /**
@@ -37,10 +39,20 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
     public function set($name, $value, $life = null)
     {
         $this->httpResponse = FigResponseCookies::set($this->httpResponse, SetCookie::create($name)
-            ->withPath('/')
+            ->withPath($this->path)
             ->withValue($value)
             ->withExpires($life)
         );
+    }
+    
+    /**
+     * Sets cookie path
+     *
+     * @param string $path
+     **/
+    public function setPath($path)
+    {
+        $this->path = $path;
     }
     
     /**
@@ -63,6 +75,7 @@ class CookieDflydevFigCookiesAdapter implements CookieInterface
     public function delete($name)
     {
         $this->httpResponse = FigResponseCookies::remove($this->httpResponse, $name);
-        $this->httpResponse = FigResponseCookies::expire($this->httpResponse, $name);
+        //set cookie to expire 1 second after Unix Epoch
+        $this->set($name, '', 1);
     }
 }
