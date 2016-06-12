@@ -9,7 +9,7 @@ use Psr\Http\Message\RequestInterface, Psr\Http\Message\ResponseInterface, Dflyd
  *
  * @author vuk <info@vuk.bg.it>
  */
-class CookieDflydevFigCookiesAdapter implements CookieInterface
+class DflydevFigCookiesAdapter implements CookieInterface
 {
     private $httpRequest;
     private $httpResponse;
