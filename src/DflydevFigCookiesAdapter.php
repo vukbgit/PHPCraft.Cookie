@@ -42,7 +42,7 @@ class DflydevFigCookiesAdapter implements CookieInterface
             $date = new \DateTime();
             $date->add(new \DateInterval('PT' . $life . 'S'));
         } else {
-            $life = null;
+            $date = null;
         }
         $this->httpResponse = FigResponseCookies::set($this->httpResponse, SetCookie::create($name)
             ->withPath($this->path)
