@@ -70,7 +70,14 @@ class DflydevFigCookiesAdapter implements CookieInterface
      **/
     public function get($name, $defaultValue = false)
     {
-        return $cookie = FigRequestCookies::get($this->httpRequest, $name, $defaultValue)->getValue();
+        //try from request
+        $cookie = FigRequestCookies::get($this->httpRequest, $name, $defaultValue)->getValue();
+        if($cookie) {
+            return $cookie;
+        } else {
+        //try from response, for cookie set during curernt script lifetime
+            return $cookie = FigResponseCookies::get($this->httpResponse, $name, $defaultValue)->getValue();
+        }
     }
     
     /**
